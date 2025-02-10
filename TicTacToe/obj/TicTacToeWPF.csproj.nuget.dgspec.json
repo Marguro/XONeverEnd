@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Tic-Tac-Toe\\The-First-Project\\TicTacToe\\TicTacToeWPF.csproj": {}
+    "C:\\Work\\Tic-Tac-Toe\\TicTacToe\\TicTacToeWPF.csproj": {}
   },
   "projects": {
-    "D:\\Tic-Tac-Toe\\The-First-Project\\TicTacToe\\TicTacToeWPF.csproj": {
+    "C:\\Work\\Tic-Tac-Toe\\TicTacToe\\TicTacToeWPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Tic-Tac-Toe\\The-First-Project\\TicTacToe\\TicTacToeWPF.csproj",
+        "projectUniqueName": "C:\\Work\\Tic-Tac-Toe\\TicTacToe\\TicTacToeWPF.csproj",
         "projectName": "TicTacToeWPF",
-        "projectPath": "D:\\Tic-Tac-Toe\\The-First-Project\\TicTacToe\\TicTacToeWPF.csproj",
+        "projectPath": "C:\\Work\\Tic-Tac-Toe\\TicTacToe\\TicTacToeWPF.csproj",
         "packagesPath": "C:\\Users\\angka\\.nuget\\packages\\",
-        "outputPath": "D:\\Tic-Tac-Toe\\The-First-Project\\TicTacToe\\obj\\",
+        "outputPath": "C:\\Work\\Tic-Tac-Toe\\TicTacToe\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\angka\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -62,7 +62,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
