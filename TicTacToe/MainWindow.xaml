@@ -7,8 +7,10 @@
         mc:Ignorable="d"
         Title="Tic-Tac-Toe" Height="450" Width="800"
         FontFamily="Segoe UI Light"
-        Background="{StaticResource BackgroundColor}">
-    <Grid>
+        Background="{StaticResource BackgroundColor}"
+        WindowStartupLocation="CenterScreen">
+    <Viewbox>
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
@@ -74,4 +76,5 @@
             </StackPanel>
         </Grid>    
     </Grid>
+    </Viewbox>
 </Window>
