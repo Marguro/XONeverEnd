@@ -183,6 +183,12 @@ public partial class MainWindow : Window
         }
     }
     
+    private async void StartButton_Click(object sender, RoutedEventArgs e)
+    {
+        await FadeOut(StartScreen);
+        await Task.WhenAll(FadeIn(TurnPanel), FadeIn(GameCanvas));
+    }
+    
     private async void OnGameRestarted()
     {
         for(int i = 0; i < 3; i++)

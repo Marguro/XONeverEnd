@@ -1,0 +1,5 @@
+C:\Work\Tic-Tac-Toe\TicTacToe\bin\Release\net9.0-windows\win-x64\publish\TicTacToeWPF.exe
+C:\Work\Tic-Tac-Toe\TicTacToe\bin\Release\net9.0-windows\win-x64\publish\TicTacToeWPF.dll
+C:\Work\Tic-Tac-Toe\TicTacToe\bin\Release\net9.0-windows\win-x64\publish\TicTacToeWPF.deps.json
+C:\Work\Tic-Tac-Toe\TicTacToe\bin\Release\net9.0-windows\win-x64\publish\TicTacToeWPF.runtimeconfig.json
+C:\Work\Tic-Tac-Toe\TicTacToe\bin\Release\net9.0-windows\win-x64\publish\TicTacToeWPF.pdb

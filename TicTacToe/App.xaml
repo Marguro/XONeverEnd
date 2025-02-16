@@ -5,7 +5,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          <SolidColorBrush x:Key="BackgroundColor" Color="#f48a2e"/>
-         <SolidColorBrush x:Key="ButtonColor" Color="#ffb966"/>
+         <SolidColorBrush x:Key="ButtonColor" Color="White"/>
          <SolidColorBrush x:Key="LineColor" Color="#01fd0a"/>
     </Application.Resources>
 </Application>

@@ -9,29 +9,49 @@
         FontFamily="Segoe UI Light"
         Background="{StaticResource BackgroundColor}"
         WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="1"
+                                CornerRadius="10"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Viewbox>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            
+
             <StackPanel x:Name="TurnPanel"
                         Orientation="Horizontal"
-                        HorizontalAlignment="Center">
+                        HorizontalAlignment="Center"
+                        Visibility="Hidden">
                 <TextBlock FontSize="54"
                            Text="Player:"/>
                 <Image x:Name="PlayerImage"
                        Source="Assets/X15.png"
                        Height="75"/>
             </StackPanel>
-        
+
             <Canvas x:Name="GameCanvas"
                     Grid.Row="1"
                     Width="300"
                     Height="300"
-                    Margin="20">
-                    
+                    Margin="20"
+                    Visibility="Hidden">
+
                 <UniformGrid x:Name="GameGrid"
                              Width="300"
                              Height="300"
@@ -49,7 +69,7 @@
                       StrokeEndLineCap="Round"
                       Visibility="Hidden"/>
             </Canvas>
-        
+
             <Grid x:Name="EndScreen"
                   Grid.RowSpan="2"
                   Background="{StaticResource BackgroundColor}"
@@ -66,17 +86,49 @@
                                Height="75"
                                Source="Assets/X15.png"/>
                     </StackPanel>
-                    
+
                     <Button Content="Play Again"
                             Background="{StaticResource ButtonColor}"
                             FontSize="34"
                             Width="200"
+                            Height="60"
                             Margin="0,20,0,0"
                             Padding="0,0,0,5"
-                            BorderBrush="Black"
-                            Click="Button_Click"/>
+                            BorderBrush="White"
+                            Click="Button_Click"
+                            Style="{StaticResource RoundedButtonStyle}"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"/>
                 </StackPanel>
-            </Grid>    
+            </Grid>
+
+            <Grid x:Name="StartScreen"
+                  Grid.RowSpan="2"
+                  Background="{StaticResource BackgroundColor}"
+                  Visibility="Visible">
+                <StackPanel Orientation="Vertical"
+                            VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <TextBlock FontSize="54"
+                                   Text="XO NeverDraw"
+                                   Margin="0,0,0,15"/>
+                    </StackPanel>
+
+                    <Button Content="Start"
+                            Background="{StaticResource ButtonColor}"
+                            FontSize="34"
+                            Width="150"
+                            Height="60"
+                            Margin="0,20,0,0"
+                            Padding="0,0,0,5"
+                            BorderBrush="White"
+                            Click="StartButton_Click"
+                            Style="{StaticResource RoundedButtonStyle}"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"/>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Viewbox>
 </Window>
