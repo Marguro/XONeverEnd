@@ -9,13 +9,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TicTacToeWPF;
-public partial class MainWindow : Window
+namespace TicTacToeWPF
 {
-    private readonly Dictionary<Player, ImageSource> ImageSources = new()
+public partial class MainWindow 
+{
+    private readonly Dictionary<Player, ImageSource> imageSources = new()
     {
-        { Player.X, new BitmapImage(new Uri("pack://application:,,,/Images/X15.png")) },
-        { Player.O, new BitmapImage(new Uri("pack://application:,,,/Images/O15.png")) }
+        { Player.X, new BitmapImage(new Uri("pack://application:,,,/Assets/X15.png")) },
+        { Player.O, new BitmapImage(new Uri("pack://application:,,,/Assets/O15.png")) }
     };
     
     private readonly Image[,] imageControls = new Image[3,3];
@@ -44,7 +45,9 @@ public partial class MainWindow : Window
     }
     private void OnMoveMade(int row, int column)
     {
-       
+       Player player = gameState.GameGrid[row,column];
+       imageControls[row,column].Source = imageSources[player];
+       PlayerImage.Source = imageSources[gameState.CurrentPlayer];
     }
     private void OnGameEnded(GameResult gameResult)
     {
@@ -56,11 +59,16 @@ public partial class MainWindow : Window
     }
     private void GameGrid_MouseDown(object sender, MouseButtonEventArgs e)
     {
-        
+        double squareSize = GameGrid.Width/3;
+        Point clickPosition = e.GetPosition(GameGrid);
+        int row = (int)(clickPosition.Y/squareSize);
+        int col = (int)(clickPosition.X/squareSize);
+        gameState.MakeMove(row,col);
     }
 
-    private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+    private void Button_Click(object sender, RoutedEventArgs e)
     {
         
     }
+}
 }

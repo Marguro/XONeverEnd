@@ -70,7 +70,7 @@
                         Margin="0,20,0,0"
                         Padding="0,0,0,5"
                         BorderBrush="Black"
-                        Click="ButtonBase_OnClick"/>
+                        Click="Button_Click"/>
             </StackPanel>
         </Grid>    
     </Grid>
