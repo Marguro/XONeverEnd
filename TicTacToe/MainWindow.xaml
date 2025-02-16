@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TicTacToeWPF"
         mc:Ignorable="d"
         Title="Tic-Tac-Toe" Height="450" Width="800"
-        FontFamily="Segoe UI Light"
+        FontFamily="Inter"
         Background="{StaticResource BackgroundColor}"
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
@@ -39,7 +39,8 @@
                         HorizontalAlignment="Center"
                         Visibility="Hidden">
                 <TextBlock FontSize="54"
-                           Text="Player:"/>
+                           Text="Player:"
+                           FontWeight="Bold"/>
                 <Image x:Name="PlayerImage"
                        Source="Assets/X15.png"
                        Height="75"/>
@@ -81,9 +82,11 @@
                         <TextBlock x:Name="ResultText"
                                    FontSize="54"
                                    Text="Winner: "
-                                   Margin="0,0,0,15"/>
+                                   Margin="0,0,0,15"
+                                   FontWeight="Bold"/>
                         <Image x:Name="WinnerImage"
-                               Height="75"
+                               Height="60"
+                               Margin="10,0,0,10" 
                                Source="Assets/X15.png"/>
                     </StackPanel>
 
@@ -98,7 +101,8 @@
                             Click="Button_Click"
                             Style="{StaticResource RoundedButtonStyle}"
                             HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"/>
+                            VerticalContentAlignment="Center"
+                            FontWeight="Bold"/>
                 </StackPanel>
             </Grid>
 
@@ -112,7 +116,8 @@
                                 HorizontalAlignment="Center">
                         <TextBlock FontSize="54"
                                    Text="XO NeverDraw"
-                                   Margin="0,0,0,15"/>
+                                   Margin="0,0,0,15"
+                                   FontWeight="Bold"/>
                     </StackPanel>
 
                     <Button Content="Start"
@@ -126,7 +131,8 @@
                             Click="StartButton_Click"
                             Style="{StaticResource RoundedButtonStyle}"
                             HorizontalContentAlignment="Center"
-                            VerticalContentAlignment="Center"/>
+                            VerticalContentAlignment="Center"
+                            FontWeight="Bold"/>
                 </StackPanel>
             </Grid>
         </Grid>
