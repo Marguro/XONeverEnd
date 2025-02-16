@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TicTacToeWPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e888abb3fa6ede0faabe7e311f41786f3e34d5a2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b9ea0e5e800f15586194a15de63b0c506394a4f")]
 [assembly: System.Reflection.AssemblyProductAttribute("TicTacToeWPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TicTacToeWPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
