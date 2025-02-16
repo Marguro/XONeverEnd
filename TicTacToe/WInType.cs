@@ -2,7 +2,7 @@ using System.Windows.Controls;
 
 namespace TicTacToeWPF;
 
-public enum WInType
+public enum WinType
 {
-    Row,Column,Diagonal,ReverseDiagonal
+    Row,Column,MainDiagonal,ReverseDiagonal
 }   

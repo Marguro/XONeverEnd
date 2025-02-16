@@ -5,13 +5,13 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace TicTacToeWPF
 {
-public partial class MainWindow 
+public partial class MainWindow : Window
 {
     private readonly Dictionary<Player, ImageSource> imageSources = new()
     {
@@ -19,12 +19,19 @@ public partial class MainWindow
         { Player.O, new BitmapImage(new Uri("pack://application:,,,/Assets/O15.png")) }
     };
     
+    private readonly Dictionary<Player, ObjectAnimationUsingKeyFrames> animations = new()
+    {
+        { Player.X, new ObjectAnimationUsingKeyFrames() },
+        { Player.O, new ObjectAnimationUsingKeyFrames() }
+    };
+    
     private readonly Image[,] imageControls = new Image[3,3];
     private readonly GameState gameState = new GameState();
-    public MainWindow()
+    public MainWindow() 
     {
         InitializeComponent();
         SetupGameGrid();
+        SetupAnimations();
         
         gameState.MoveMade += OnMoveMade;
         gameState.GameEnded += OnGameEnded;
@@ -43,20 +50,112 @@ public partial class MainWindow
             }
         }
     }
+    
+    private void SetupAnimations()
+    {
+        animations[Player.X].Duration = TimeSpan.FromSeconds(.25);
+        animations[Player.O].Duration = TimeSpan.FromSeconds(.25);
+        
+        for (int i = 0; i < 16; i++)
+        {
+            Uri xUri = new Uri($"pack://application:,,,/Assets/X{i}.png");
+            BitmapImage xImg = new BitmapImage(xUri);
+            DiscreteObjectKeyFrame xKeyFrame = new DiscreteObjectKeyFrame(xImg);
+            animations[Player.X].KeyFrames.Add(xKeyFrame);
+            
+            Uri oUri = new Uri($"pack://application:,,,/Assets/O{i}.png");
+            BitmapImage oImg = new BitmapImage(oUri);
+            DiscreteObjectKeyFrame oKeyFrame = new DiscreteObjectKeyFrame(oImg);
+            animations[Player.O].KeyFrames.Add(oKeyFrame);
+        }
+    }
+
+    private void TransitionToEndScreen(string text, ImageSource winnerImage)
+    {
+        TurnPanel.Visibility = Visibility.Hidden;
+        GameCanvas.Visibility = Visibility.Hidden;
+        ResultText.Text = text;
+        WinnerImage.Source = winnerImage;
+        EndScreen.Visibility = Visibility.Visible;
+    }
+    
+    private void TransitionToGameScreen()
+    {
+        TurnPanel.Visibility = Visibility.Visible;
+        Line.Visibility = Visibility.Hidden;
+        GameCanvas.Visibility = Visibility.Visible;
+        EndScreen.Visibility = Visibility.Hidden;
+    }
+    
+    private (Point, Point) FindLinePoints(WinInfo winInfo)
+    {
+        double squareSize = GameGrid.Width/3;
+        double margin = squareSize/2;
+
+        if (winInfo.Type == WinType.Row)
+        {
+            double y = winInfo.Number * squareSize + margin;
+            return (new Point(0,y), new Point(GameGrid.Width,y));
+        }
+        if (winInfo.Type == WinType.Column)
+        {
+            double x = winInfo.Number * squareSize + margin;
+            return (new Point(x,0), new Point(x,GameGrid.Height));
+        }
+        if (winInfo.Type == WinType.MainDiagonal)
+        {
+            return (new Point(0,0), new Point(GameGrid.Width,GameGrid.Height));
+        }
+        return (new Point(GameGrid.Width,0), new Point(0,GameGrid.Height));
+    }
+
+    private void ShowLine(WinInfo winInfo)
+    {
+        (Point start, Point end) = FindLinePoints(winInfo);
+        
+        Line.X1 = start.X;
+        Line.Y1 = start.Y;
+        
+        Line.X2 = end.X;
+        Line.Y2 = end.Y;
+        
+        Line.Visibility = Visibility.Visible;
+    }
+    
     private void OnMoveMade(int row, int column)
     {
        Player player = gameState.GameGrid[row,column];
-       imageControls[row,column].Source = imageSources[player];
+       imageControls[row,column].BeginAnimation(Image.SourceProperty, animations[player]);
        PlayerImage.Source = imageSources[gameState.CurrentPlayer];
     }
-    private void OnGameEnded(GameResult gameResult)
+    private async void OnGameEnded(GameResult gameResult)
     {
-        
+        await Task.Delay(1000);
+        if (gameResult.Winner == Player.None)
+        {
+            TransitionToEndScreen("It's a draw!", null);
+        }
+        else
+        {
+            ShowLine(gameResult.WinInfo);
+            await Task.Delay(1000);
+            TransitionToEndScreen("Winner: ", imageSources[gameResult.Winner]);
+        }
     }
+    
     private void OnGameRestarted()
     {
-     
+        for(int i = 0; i < 3; i++)
+        {
+            for(int j = 0; j < 3; j++)
+            {
+                imageControls[i,j].Source = null;
+            }
+        }
+        PlayerImage.Source = imageSources[gameState.CurrentPlayer];
+        TransitionToGameScreen();
     }
+    
     private void GameGrid_MouseDown(object sender, MouseButtonEventArgs e)
     {
         double squareSize = GameGrid.Width/3;
@@ -68,7 +167,7 @@ public partial class MainWindow
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-        
+        gameState.Reset();
     }
 }
 }

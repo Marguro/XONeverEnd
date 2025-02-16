@@ -57,22 +57,22 @@ public class GameState
        
          if(AreSquaresMarked(row,CurrentPlayer))
          {
-              winInfo = new WinInfo{Type = WInType.Row,Number = r};
+              winInfo = new WinInfo{Type = WinType.Row,Number = r};
               return true;
          }
          if (AreSquaresMarked(col,CurrentPlayer))
          {
-              winInfo = new WinInfo{Type = WInType.Column,Number = c};
+              winInfo = new WinInfo{Type = WinType.Column,Number = c};
               return true;
          }
          if (AreSquaresMarked(mainDiag,CurrentPlayer))
          {
-             winInfo = new WinInfo{Type = WInType.Diagonal,Number = 0};
+             winInfo = new WinInfo{Type = WinType.MainDiagonal,Number = 0};
              return true;
          }
          if (AreSquaresMarked(antiDiag,CurrentPlayer))
          {
-             winInfo = new WinInfo{Type = WInType.ReverseDiagonal,Number = 0};
+             winInfo = new WinInfo{Type = WinType.ReverseDiagonal,Number = 0};
              return true;
          }
          winInfo = null;
