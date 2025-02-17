@@ -6,7 +6,6 @@ C:\Work\Tic-Tac-Toe\TicTacToe\bin\Release\net9.0-windows\TicTacToeWPF.pdb
 C:\Work\Tic-Tac-Toe\TicTacToe\obj\Release\net9.0-windows\MainWindow.g.cs
 C:\Work\Tic-Tac-Toe\TicTacToe\obj\Release\net9.0-windows\App.g.cs
 C:\Work\Tic-Tac-Toe\TicTacToe\obj\Release\net9.0-windows\TicTacToeWPF_MarkupCompile.cache
-C:\Work\Tic-Tac-Toe\TicTacToe\obj\Release\net9.0-windows\TicTacToeWPF_MarkupCompile.lref
 C:\Work\Tic-Tac-Toe\TicTacToe\obj\Release\net9.0-windows\App.baml
 C:\Work\Tic-Tac-Toe\TicTacToe\obj\Release\net9.0-windows\MainWindow.baml
 C:\Work\Tic-Tac-Toe\TicTacToe\obj\Release\net9.0-windows\TicTacToeWPF.g.resources

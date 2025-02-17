@@ -4,5 +4,5 @@ namespace TicTacToeWPF;
 
 public enum WinType
 {
-    Row,Column,MainDiagonal,ReverseDiagonal
+    Row,Column,MainDiagonal,AntiDiagonal
 }   

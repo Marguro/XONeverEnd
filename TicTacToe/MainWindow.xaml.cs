@@ -1,13 +1,9 @@
-﻿using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 namespace TicTacToeWPF
 {
@@ -50,6 +46,7 @@ public partial class MainWindow : Window
         gameState.MoveMade += OnMoveMade;
         gameState.GameEnded += OnGameEnded;
         gameState.GameRestarted += OnGameRestarted;
+        gameState.SymbolRemoved += OnSymbolRemoved;
     }
     
     private void SetupGameGrid()
@@ -162,11 +159,52 @@ public partial class MainWindow : Window
         await Task.Delay(x2Animation.Duration.TimeSpan);
     }
     
+    private void StartBlinking(int row, int column)
+    {
+        DoubleAnimation blinkAnimation = new DoubleAnimation
+        {
+            From = 1.0,
+            To = 0.0,
+            Duration = TimeSpan.FromSeconds(0.5),
+            AutoReverse = true,
+            RepeatBehavior = RepeatBehavior.Forever 
+        };
+
+        imageControls[row, column].BeginAnimation(UIElement.OpacityProperty, blinkAnimation);
+    }
+
+    private void StopBlinking(int row, int column)
+    {
+        imageControls[row, column].BeginAnimation(UIElement.OpacityProperty, null);
+    }
+    
+    private void OnSymbolRemoved(int row, int column)
+    {
+        StopBlinking(row, column);
+
+        imageControls[row, column].Source = null;
+        imageControls[row, column].Visibility = Visibility.Hidden;
+    }
+
     private void OnMoveMade(int row, int column)
     {
-       Player player = gameState.GameGrid[row,column];
-       imageControls[row,column].BeginAnimation(Image.SourceProperty, animations[player]);
-       PlayerImage.Source = imageSources[gameState.CurrentPlayer];
+        if (gameState.Moves.Count > 5)
+        {
+            var firstMove = gameState.Moves[0];
+            OnSymbolRemoved(firstMove.row, firstMove.column);
+            gameState.Moves.RemoveAt(0);
+        }
+
+        Player player = gameState.GameGrid[row, column];
+        imageControls[row, column].BeginAnimation(Image.SourceProperty, animations[player]); 
+        imageControls[row, column].Visibility = Visibility.Visible; 
+        PlayerImage.Source = imageSources[gameState.CurrentPlayer];
+
+        if (gameState.Moves.Count == 5)
+        {
+            var firstMove = gameState.Moves[0];
+            StartBlinking(firstMove.row, firstMove.column);
+        }
     }
     private async void OnGameEnded(GameResult gameResult)
     {
