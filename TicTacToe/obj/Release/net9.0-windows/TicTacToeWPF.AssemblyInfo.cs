@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("TicTacToeWPF")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("XONeverDraw")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d352d12871d2e90a85af65b8f217374f01011ac8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0a512879f4ecd20ca844b32db1f285cd04b4eca")]
 [assembly: System.Reflection.AssemblyProductAttribute("TicTacToeWPF")]
-[assembly: System.Reflection.AssemblyTitleAttribute("TicTacToeWPF")]
+[assembly: System.Reflection.AssemblyTitleAttribute("XONeverDraw")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]

@@ -9,6 +9,8 @@ namespace TicTacToeWPF
 {
 public partial class MainWindow : Window
 {
+    private int xScore = 0;
+    private int oScore = 0;
     private readonly Dictionary<Player, ImageSource> imageSources = new()
     {
         { Player.X, new BitmapImage(new Uri("pack://application:,,,/Assets/X15.png")) },
@@ -203,6 +205,7 @@ public partial class MainWindow : Window
         if (gameState.Moves.Count == 5)
         {
             var firstMove = gameState.Moves[0];
+            StopBlinking(firstMove.row, firstMove.column);
             StartBlinking(firstMove.row, firstMove.column);
         }
     }
@@ -218,6 +221,18 @@ public partial class MainWindow : Window
             await ShowLine(gameResult.WinInfo);
             await Task.Delay(1000);
             await TransitionToEndScreen("Winner: ", imageSources[gameResult.Winner]);
+            
+            if (gameResult.Winner == Player.X)
+            {
+                xScore++;
+            }
+            else if (gameResult.Winner == Player.O)
+            {
+                oScore++;
+            }
+
+            Xscore.Text = $"X score: {xScore}";
+            Oscore.Text = $"O score: {oScore}";
         }
     }
     
@@ -229,10 +244,12 @@ public partial class MainWindow : Window
     
     private async void OnGameRestarted()
     {
+        
         for(int i = 0; i < 3; i++)
         {
             for(int j = 0; j < 3; j++)
             {
+                StopBlinking(i, j);
                 imageControls[i,j].BeginAnimation(Image.SourceProperty, null);
                 imageControls[i,j].Source = null;
             }

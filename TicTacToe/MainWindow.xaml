@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Tic-Tac-Toe" Height="450" Width="800"
+        Title="XONeverDraw" Height="450" Width="800"
         FontFamily="Inter"
         Background="{StaticResource BackgroundColor}"
         WindowStartupLocation="CenterScreen">
@@ -88,6 +88,23 @@
                                Margin="10,0,0,10" 
                                Source="Assets/X15.png"/>
                     </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <TextBlock x:Name="Xscore"
+                                   FontSize="40"
+                                   Text="X score: "
+                                   Margin="0,0,0,15"
+                                   FontWeight="Bold"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <TextBlock x:Name="Oscore"
+                                   FontSize="40"
+                                   Text="O score: "
+                                   Margin="0,0,0,15"
+                                   FontWeight="Bold"/>
+                    </StackPanel>
 
                     <Button Content="Play Again"
                             Background="{StaticResource ButtonColor}"
@@ -108,7 +125,9 @@
             <Grid x:Name="StartScreen"
                   Grid.RowSpan="2"
                   Background="{StaticResource BackgroundColor}"
-                  Visibility="Visible">
+                  Visibility="Visible"
+                  Width="800"
+                  Height="450">
                 <StackPanel Orientation="Vertical"
                             VerticalAlignment="Center">
                     <StackPanel Orientation="Horizontal"
@@ -118,7 +137,6 @@
                                    Margin="0,0,0,15"
                                    FontWeight="Bold"/>
                     </StackPanel>
-
                     <Button Content="Start"
                             Background="{StaticResource ButtonColor}"
                             FontSize="34"
@@ -132,6 +150,15 @@
                             HorizontalContentAlignment="Center"
                             VerticalContentAlignment="Center"
                             FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Left"
+                            Margin="10">
+                    <TextBlock FontSize="20"
+                               Text="Version Sigmaboi 3,6,9,12"
+                               Margin="0,0,0,0"
+                               FontWeight="Bold"/>
                 </StackPanel>
             </Grid>
         </Grid>

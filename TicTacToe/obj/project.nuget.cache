@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ic9B7eIcRas=",
+  "dgSpecHash": "3Qf6YOr56rI=",
   "success": true,
   "projectFilePath": "C:\\Work\\Tic-Tac-Toe\\TicTacToe\\TicTacToeWPF.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\angka\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\9.0.1\\microsoft.netcore.app.runtime.win-x64.9.0.1.nupkg.sha512",
+    "C:\\Users\\angka\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\9.0.1\\microsoft.windowsdesktop.app.runtime.win-x64.9.0.1.nupkg.sha512",
+    "C:\\Users\\angka\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\9.0.1\\microsoft.aspnetcore.app.runtime.win-x64.9.0.1.nupkg.sha512",
+    "C:\\Users\\angka\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\9.0.1\\microsoft.netcore.app.crossgen2.win-x64.9.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

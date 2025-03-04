@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="XONeverDraw" type="DotNetFolderPublish" factoryName="Publish to folder">
+    <riderPublish configuration="Release" platform="Any CPU" ready_to_run="true" runtime="win-x64" target_folder="$USER_HOME$/OneDrive/Desktop" target_framework="net9.0-windows" uuid_high="5215106388450889206" uuid_low="-7977240365659765799" />
+    <method v="2" />
+  </configuration>
+</component>

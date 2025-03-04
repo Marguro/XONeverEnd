@@ -1,0 +1,5 @@
+C:\Users\angka\OneDrive\Desktop\XONeverDraw.exe
+C:\Users\angka\OneDrive\Desktop\XONeverDraw.dll
+C:\Users\angka\OneDrive\Desktop\XONeverDraw.deps.json
+C:\Users\angka\OneDrive\Desktop\XONeverDraw.runtimeconfig.json
+C:\Users\angka\OneDrive\Desktop\XONeverDraw.pdb
