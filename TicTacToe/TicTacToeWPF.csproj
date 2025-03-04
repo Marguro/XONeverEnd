@@ -7,6 +7,9 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
         <ApplicationIcon>Assets\Icon.ico</ApplicationIcon>
+        <RootNamespace>TicTacToe</RootNamespace>
+        <Product>TicTacToeWPF</Product>
+        <AssemblyName>XONeverDraw</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>

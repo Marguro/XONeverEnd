@@ -1,11 +1,11 @@
-﻿TicTacToeWPF
+﻿XONeverDraw
 
 
 winexe
 C#
 .cs
 C:\Work\Tic-Tac-Toe\TicTacToe\obj\Release\net9.0-windows\
-TicTacToeWPF
+TicTacToe
 none
 false
 TRACE;RELEASE;NET;NET9_0;NETCOREAPP
